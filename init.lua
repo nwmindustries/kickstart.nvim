@@ -3,6 +3,8 @@ vim.g.maplocalleader = ' '
 
 -- Install package manager
 
+
+
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
