@@ -40,16 +40,44 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
+-- require('telescope').setup {
+--   defaults = {
+--     mappings = {
+--       i = {
+--         ['<C-u>'] = false,
+--         ['<C-d>'] = false,
+--       },
+--     },
+--   },
+-- }
+
+local actions = require('telescope.actions')
+require('telescope').setup{
   defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
+    -- Your other defaults
+  },
+  pickers = {
+    help_tags = {
+      attach_mappings = function(_, map)
+        map('i', '<CR>', function(prompt_bufnr)
+          local selection = require('telescope.actions.state').get_selected_entry(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          vim.cmd('tab help ' .. selection.value)
+        end)
+        map('n', '<CR>', function(prompt_bufnr)
+          local selection = require('telescope.actions.state').get_selected_entry(prompt_bufnr)
+          actions.close(prompt_bufnr)
+          vim.cmd('tab help ' .. selection.value)
+        end)
+        return true
+      end,
     },
   },
 }
+
+
+
+
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
