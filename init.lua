@@ -22,9 +22,11 @@ vim.opt.rtp:prepend(lazypath)
 
 -- These are for stuff in `lua` directory
 require('lazy').setup("plugins")
+require('autocmds')
 require('mappings')
 require('options')
 
+vim.cmd('autocmd! FileType help wincmd L')
 
 
 -- [[ Highlight on yank ]]
@@ -62,12 +64,12 @@ require('telescope').setup{
         map('i', '<CR>', function(prompt_bufnr)
           local selection = require('telescope.actions.state').get_selected_entry(prompt_bufnr)
           actions.close(prompt_bufnr)
-          vim.cmd('tab help ' .. selection.value)
+          vim.cmd('vertical help ' .. selection.value .. ' | wincmd L')
         end)
         map('n', '<CR>', function(prompt_bufnr)
           local selection = require('telescope.actions.state').get_selected_entry(prompt_bufnr)
           actions.close(prompt_bufnr)
-          vim.cmd('tab help ' .. selection.value)
+          vim.cmd('vertical help ' .. selection.value .. ' | wincmd L')
         end)
         return true
       end,
