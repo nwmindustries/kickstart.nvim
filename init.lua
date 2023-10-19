@@ -26,7 +26,7 @@ require('autocmds')
 require('mappings')
 require('options')
 
-vim.cmd('autocmd! FileType help wincmd L')
+-- vim.cmd('autocmd! FileType help wincmd L')
 
 
 -- [[ Highlight on yank ]]
