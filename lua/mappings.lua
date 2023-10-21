@@ -26,8 +26,8 @@ vim.keymap.set('n', 'U', '<C-r>', {silent=true})
 
 -- Buffers and tabs
 vim.keymap.set('n', 'bx', '<cmd>bd<cr>', {silent=true})
-vim.keymap.set('n', 'bh', '<cmd>bprevious<cr>', {silent=true})
-vim.keymap.set('n', 'bn', '<cmd>bnext<cr>', {silent=true})
+vim.keymap.set('n', '<M-h>', '<cmd>bprevious<cr>', {silent=true})
+vim.keymap.set('n', '<M-l>', '<cmd>bnext<cr>', {silent=true})
 vim.keymap.set('n', 'bs', '<cmd>vsplit<cr>', {silent=true})
 vim.keymap.set('n', 'tl', 'gt', {silent=true})
 vim.keymap.set('n', 'th', 'gT', {silent=true})
