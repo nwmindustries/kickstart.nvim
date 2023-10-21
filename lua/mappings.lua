@@ -6,8 +6,8 @@ vim.g.maplocalleader = ' '
 vim.keymap.set({'n', 'v'}, 'q', '<Nop>', {silent=true})
 vim.keymap.set('n', ';', ':')
 
-vim.keymap.set('n', '<M-k>', '2<C-Y>', {silent=true})
-vim.keymap.set('n', '<M-j>', '2<C-E>', {silent=true})
+vim.keymap.set({'n', 'v'}, '<M-k>', '2<C-Y>', {silent=true}) -- scroll up
+vim.keymap.set({'n', 'v'}, '<M-j>', '2<C-E>', {silent=true}) -- scroll down
 
 -- vim.keymap.set('n', '<leader>e', ":NvimTreeToggle")
 
@@ -33,6 +33,10 @@ vim.keymap.set('n', 'tl', 'gt', {silent=true})
 vim.keymap.set('n', 'th', 'gT', {silent=true})
 vim.keymap.set('n', 'tx', '<cmd>tabclose<cr>', {silent=true})
 vim.keymap.set('n', '<leader>ta', '<cmd>tab ba<cr>', {silent=true}) -- open all buffers in tabs
+vim.keymap.set('n', 'to', '<cmd>tabedit %<cr>', {silent=true, noremap=true}) -- Opens current buffer in a new tabpage 
+
+vim.keymap.set('n', '<tab>', 'gt', {silent=true, noremap=true})  -- moves to next tab page. Idfk maybe delete this
+vim.keymap.set('n', '<S-tab>', 'gT', {silent=true, noremap=true})  -- moves to previous tab page. Idfk maybe delete this
 
 vim.keymap.set('n', '<M-[>', '<cmd>vertical resize +2<cr>', {silent=true})
 vim.keymap.set('n', '<M-]>', '<cmd>vertical resize -2<cr>', {silent=true})
