@@ -1,10 +1,5 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
--- Install package manager
-
-
-
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -21,6 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- These are for stuff in `lua` directory
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
 require('lazy').setup("plugins")
 require('autocmds')
 require('mappings')
