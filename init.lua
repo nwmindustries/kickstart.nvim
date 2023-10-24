@@ -37,6 +37,35 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--     nested = true,
+--     callback = function()
+--         if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
+--             vim.cmd "NvimTreeClose"
+--             vim.cmd "qa"
+--         end
+--   end
+-- })
+
+-- local tree = require'nvim-tree'
+--
+-- function close_if_last_buffer()
+--   if #vim.api.nvim_list_wins() == 1 then    
+--     tree.close()
+--
+--     -- vim.cmd('qa')
+--   end
+-- end
+--
+-- vim.cmd[[ autocmd BufDelete * lua close_if_last_buffer() ]]
+
+
+-- local function close_tree() 
+--   if #vim.api.nvim_list_wins() 
+--
+--
+-- end
+
 
 
 
