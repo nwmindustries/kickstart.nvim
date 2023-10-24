@@ -1,4 +1,18 @@
 
+
+# Gets the current list of window handles:
+`vim.api.nvim_list_wins()`
+
+# *Counts* the current list of windows:
+`#vim.api.nvim_list_wins()`
+
+
+
+  
+
+
+
+
 # Markdown Cheat Sheet
 
 Thanks for visiting [The Markdown Guide](https://www.markdownguide.org)!
