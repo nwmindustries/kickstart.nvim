@@ -38,8 +38,8 @@ vim.keymap.set('n', 'to', '<cmd>tabedit %<cr>', {silent=true, noremap=true}) -- 
 vim.keymap.set('n', '<tab>', 'gt', {silent=true, noremap=true})  -- moves to next tab page. Idfk maybe delete this
 vim.keymap.set('n', '<S-tab>', 'gT', {silent=true, noremap=true})  -- moves to previous tab page. Idfk maybe delete this
 
-vim.keymap.set('n', '<M-[>', '<cmd>vertical resize +2<cr>', {silent=true})
-vim.keymap.set('n', '<M-]>', '<cmd>vertical resize -2<cr>', {silent=true})
+vim.keymap.set('n', '<M-[>', '<cmd>vertical resize +2<cr>', {silent=true, noremap=true})
+vim.keymap.set('n', '<M-]>', '<cmd>vertical resize -2<cr>', {silent=true, noremap=true})
 
 
 
