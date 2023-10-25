@@ -38,7 +38,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
