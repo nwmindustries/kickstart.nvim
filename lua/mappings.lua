@@ -13,11 +13,11 @@ vim.keymap.set({'n', 'v'}, '<M-j>', '2<C-E>', {silent=true}) -- scroll down
 
 vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<CR>", {silent=true})
 
--- Window navigation
-vim.keymap.set({'n', 'c'}, '<C-j>', "<C-w>j", {silent=true})
-vim.keymap.set({'n', 'c'}, '<C-h>', "<C-w>h", {silent=true})
-vim.keymap.set({'n', 'c'}, '<C-l>', "<C-w>l", {silent=true})
-vim.keymap.set({'n', 'c'}, '<C-k>', "<C-w>k", {silent=true})
+-- Window navigation  -- Temporarily commented out for tmux navigation
+-- vim.keymap.set({'n', 'c'}, '<C-j>', "<C-w>j", {silent=true})
+-- vim.keymap.set({'n', 'c'}, '<C-h>', "<C-w>h", {silent=true})
+-- vim.keymap.set({'n', 'c'}, '<C-l>', "<C-w>l", {silent=true})
+-- vim.keymap.set({'n', 'c'}, '<C-k>', "<C-w>k", {silent=true})
 
 vim.keymap.set({'n', 'v'}, "L", "$", {silent=true})
 vim.keymap.set({'n', 'v'}, "H", "0", {silent=true})
