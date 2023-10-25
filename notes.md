@@ -11,6 +11,50 @@
   
 
 
+### Highlights 
+A highlight group is a collection of text attributes like color, bold, italics, etc. that are linked to specific syntax elements such as keywords, comments, operators, etc.
+
+A highlight group must first be defined, and then it must be linked a syntax item, which is defined in a file that vim loads, specific to the type of file you're editing. 
+
+```lua
+vim.cmd[[highlight MyGroup guifg=red guibg=blue gui=bold]] -- defining mygroup  
+
+-- linking the groups. :syntax and :highlight are commands
+syntax keyword MyKeyword MyWord
+highlight MyGroup guifg=red
+syntax link MyKeyword MyGroup
+
+-- inheritance is accomplished by link. Mygroup inherits SomeOtherGroup attributes
+highlight link MyGroup SomeOtherGroup 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Markdown Cheat Sheet

@@ -23,6 +23,11 @@ require('autocmds')
 require('mappings')
 require('options')
 
+
+-- vim.cmd[[highlight NvimTreeCursorLine guibg=blue guifg=white]]
+vim.cmd[[highlight NvimTreeCursorLine guifg=violet]]
+
+
 -- vim.cmd('autocmd! FileType help wincmd L')
 
 

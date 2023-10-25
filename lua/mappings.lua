@@ -38,13 +38,16 @@ vim.keymap.set('n', 'to', '<cmd>tabedit %<cr>', {silent=true, noremap=true}) -- 
 vim.keymap.set('n', '<tab>', 'gt', {silent=true, noremap=true})  -- moves to next tab page. Idfk maybe delete this
 vim.keymap.set('n', '<S-tab>', 'gT', {silent=true, noremap=true})  -- moves to previous tab page. Idfk maybe delete this
 
-vim.keymap.set('n', '<M-[>', '<cmd>vertical resize +2<cr>', {silent=true, noremap=true})
-vim.keymap.set('n', '<M-]>', '<cmd>vertical resize -2<cr>', {silent=true, noremap=true})
+-- Resize vertical windows
+vim.keymap.set('n', '<M-[>', '<cmd>vertical resize +4<cr>', {silent=true, noremap=true, nowait=true})
+vim.keymap.set('n', '<M-]>', '<cmd>vertical resize -4<cr>', {silent=true, noremap=true, nowait=true})
 
 
 
 
-vim.api.nvim_set_keymap('n', 'J', ':normal o<Esc>', {noremap = true, silent = true}) --Insert blank line
+vim.api.nvim_set_keymap('n', 'J', 'O<Esc>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'J', ':m .+1<CR>==', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'J', ':normal i<cr><Esc>', {noremap = true, silent = true}) --Insert blank line
 -----------Mappings from original kicktstart init.nvim---------------------
 
 
