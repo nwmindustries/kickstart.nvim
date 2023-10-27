@@ -19,6 +19,18 @@ vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<CR>", {silent=true})
 -- vim.keymap.set({'n', 'c'}, '<C-l>', "<C-w>l", {silent=true})
 -- vim.keymap.set({'n', 'c'}, '<C-k>', "<C-w>k", {silent=true})
 
+-- Todo: put this somewhere else
+local function count_valid_bufs()
+  local count = 0
+  for i = 1, vim.fn.bufnr('$') do
+    if vim.fn.buflisted(i) == 1 then
+      count = count + 1
+    end
+  end
+  return count
+end
+
+
 vim.keymap.set({'n', 'v'}, "L", "$", {silent=true})
 vim.keymap.set({'n', 'v'}, "H", "0", {silent=true})
 

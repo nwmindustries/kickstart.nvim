@@ -16,8 +16,9 @@ local function my_on_attach(bufnr)
     -- default mappings
   api.config.mappings.default_on_attach(bufnr) 
   vim.keymap.set('n', 'o', open_and_refocus, opts('open and refocus')) 
-  vim.keymap.set('n', 'll', api.tree.change_root_to_node, opts("cd"))
-  vim.keymap.set('n', 'hh', api.tree.change_root_to_parent, opts("cd .."))
+  vim.keymap.set('n', 'L', api.tree.change_root_to_node, opts("cd"))
+  vim.keymap.set('n', 'H', api.tree.change_root_to_parent, opts("cd .."))
+  vim.keymap.set('n', '.', api.tree.toggle_hidden_filter, opts("toggle dot"))
    
   -- vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
   -- vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
