@@ -2,7 +2,8 @@ return {
   
   'nvimdev/dashboard-nvim',
   event = 'VimEnter',
-  config = true,
+  -- config = true,
+  -- cond = false, -- Disabled temporarily
   -- config = function()
   --   require('dashboard').setup {
   --     theme = 'hyper'
