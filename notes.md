@@ -6,7 +6,11 @@
 # *Counts* the current list of windows:
 `#vim.api.nvim_list_wins()`
 
-
+# Vim commands
+```vim
+messages "Shows messages from the command line
+au "Lists autocommands
+```
 
   
 
@@ -28,8 +32,12 @@ syntax link MyKeyword MyGroup
 highlight link MyGroup SomeOtherGroup 
 ```
 
+### autocommands ###
 
+```vim
+autocmd!  "*removes* an auto command
 
+```
 
 
 
