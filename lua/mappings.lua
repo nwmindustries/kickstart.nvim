@@ -8,27 +8,8 @@ vim.keymap.set('n', ';', ':')
 
 vim.keymap.set({'n', 'v'}, '<M-k>', '2<C-Y>', {silent=true}) -- scroll up
 vim.keymap.set({'n', 'v'}, '<M-j>', '2<C-E>', {silent=true}) -- scroll down
-
--- vim.keymap.set('n', '<leader>e', ":NvimTreeToggle")
-
 vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<CR>", {silent=true})
 
--- Window navigation  -- Temporarily commented out for tmux navigation
--- vim.keymap.set({'n', 'c'}, '<C-j>', "<C-w>j", {silent=true})
--- vim.keymap.set({'n', 'c'}, '<C-h>', "<C-w>h", {silent=true})
--- vim.keymap.set({'n', 'c'}, '<C-l>', "<C-w>l", {silent=true})
--- vim.keymap.set({'n', 'c'}, '<C-k>', "<C-w>k", {silent=true})
-
--- Todo: put this somewhere else
-local function count_valid_bufs()
-  local count = 0
-  for i = 1, vim.fn.bufnr('$') do
-    if vim.fn.buflisted(i) == 1 then
-      count = count + 1
-    end
-  end
-  return count
-end
 
 
 vim.keymap.set({'n', 'v'}, "L", "$", {silent=true})
@@ -38,11 +19,10 @@ vim.keymap.set('n', 'U', '<C-r>', {silent=true})
 
 -- Buffers and tabs
 vim.keymap.set('n', 'bx', '<cmd>bd<cr>', {silent=true})
+vim.keymap.set('n', 'bc', '<cmd>close<cr>', {silent=true})
 vim.keymap.set('n', '<M-h>', '<cmd>bprevious<cr>', {silent=true})
 vim.keymap.set('n', '<M-l>', '<cmd>bnext<cr>', {silent=true})
 vim.keymap.set('n', 'bs', '<cmd>vsplit<cr>', {silent=true})
-vim.keymap.set('n', 'tl', 'gt', {silent=true})
-vim.keymap.set('n', 'th', 'gT', {silent=true})
 vim.keymap.set('n', 'tx', '<cmd>tabclose<cr>', {silent=true})
 vim.keymap.set('n', '<leader>ta', '<cmd>tab ba<cr>', {silent=true}) -- open all buffers in tabs
 vim.keymap.set('n', 'to', '<cmd>tabedit %<cr>', {silent=true, noremap=true}) -- Opens current buffer in a new tabpage 
@@ -50,7 +30,6 @@ vim.keymap.set('n', 'to', '<cmd>tabedit %<cr>', {silent=true, noremap=true}) -- 
 vim.keymap.set('n', '<tab>', 'gt', {silent=true, noremap=true})  -- moves to next tab page. Idfk maybe delete this
 vim.keymap.set('n', '<S-tab>', 'gT', {silent=true, noremap=true})  -- moves to previous tab page. Idfk maybe delete this
 
--- Resize vertical windows
 vim.keymap.set('n', '<M-[>', '<cmd>vertical resize +4<cr>', {silent=true, noremap=true, nowait=true})
 vim.keymap.set('n', '<M-]>', '<cmd>vertical resize -4<cr>', {silent=true, noremap=true, nowait=true})
 
