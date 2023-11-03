@@ -1,12 +1,8 @@
 - Cursor red on blank line
 
+- api-autocmd
+
 - Collate all plugin specs into single file
-
-- Open tab without switching to it  
-
-- map te to open the current buffer in new tab and switch to it 
-- map tl to push tab to right
-- map th to push tab to left
 
 - bpython in terminal? 
 -
