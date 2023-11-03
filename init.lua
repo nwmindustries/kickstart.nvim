@@ -26,7 +26,7 @@ require('options')
 
 -- vim.cmd[[highlight NvimTreeCursorLine guibg=blue guifg=white]]
 vim.cmd[[highlight NvimTreeCursorLine guifg=violet guibg=black]]
-
+vim.cmd[[highlight NvimTreeModifiedFile guifg=red]]
 
 -- vim.cmd('autocmd! FileType help wincmd L')
 

@@ -6,6 +6,7 @@
 # *Counts* the current list of windows:
 `#vim.api.nvim_list_wins()`
 
+
 # Vim commands
 ```vim
 messages "Shows messages from the command line
@@ -24,15 +25,17 @@ A highlight group must first be defined, and then it must be linked a syntax ite
 vim.cmd[[highlight MyGroup guifg=red guibg=blue gui=bold]] -- defining mygroup  
 
 -- linking the groups. :syntax and :highlight are commands
-syntax keyword MyKeyword MyWord
-highlight MyGroup guifg=red
-syntax link MyKeyword MyGroup
+vim.cmd[[syntax keyword MyKeyword MyWord]]
+vim.cmd[[highlight MyGroup guifg=red]]
+vim.cmd[[syntax link MyKeyword MyGroup]]
 
 -- inheritance is accomplished by link. Mygroup inherits SomeOtherGroup attributes
 highlight link MyGroup SomeOtherGroup 
 ```
 
 ### autocommands ###
+
+
 
 ```vim
 autocmd!  "*removes* an auto command
