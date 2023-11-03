@@ -4,6 +4,10 @@
 
 - Collate all plugin specs into single file
 
+- Mess around with formatting plugin specs yourself
+
+- Figure out what the g key does
+
 - bpython in terminal? 
 -
 - Maybe set cursor to highlight always and not change on isert
@@ -27,3 +31,5 @@
 - Goto line #
 
 - Comment entire line from normal mode with just gc 
+
+- Try out using 

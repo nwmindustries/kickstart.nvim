@@ -1,3 +1,117 @@
+local NVIM_TREE = {
+  "nvim-tree/nvim-tree.lua",
+  version = "*",
+  lazy = false,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  config = function()
+    require("nvim-tree").setup {
+      on_attach = function(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  local function open_and_refocus()
+    api.node.open.edit()
+    vim.cmd('NvimTreeFocus')
+  end
+
+  api.config.mappings.default_on_attach(bufnr)
+  vim.keymap.set('n', 'o', open_and_refocus, opts('open and refocus'))
+  vim.keymap.set('n', 'L', api.tree.change_root_to_node, opts("cd"))
+  vim.keymap.set('n', 'H', api.tree.change_root_to_parent, opts("cd .."))
+  vim.keymap.set('n', '.', api.tree.toggle_hidden_filter, opts("toggle dot"))
+
+end
+,
+
+      update_focused_file = {
+        enable= true,
+      }
+    }
+  end,
+}
+
+local BARBAR = {
+  {'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    cond = false,
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  },
+}
+
+
+local DASHBOARD_NVIM = {
+  
+  'nvimdev/dashboard-nvim',
+  event = 'VimEnter',
+  -- config = true,
+  -- cond = false, -- Disabled temporarily
+  -- config = function()
+  --   require('dashboard').setup {
+  --     theme = 'hyper'
+  --     -- config
+  --   }
+  -- end,
+  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+}
+
+
+
+local TOGGLETERM = {
+--   {'akinsho/toggleterm.nvim', version = "*", config = true}
+  -- 'akinsho/toggleterm.nvim',
+  -- version = "*",
+  -- config = function()
+  --   require('toggleterm').setup{
+  --     open_mapping = "\\"
+  --     
+  --     pj
+  --   }
+  -- end
+  'akinsho/toggleterm.nvim',
+  version = "",
+  opts = {
+    open_mapping = '\\',
+    insert_mappings = false
+  }
+
+}
+
+
+local NVIM_TMUX_NAVIGATION = {
+ 'alexghergh/nvim-tmux-navigation',
+  config = function()
+    local nvim_tmux_nav = require('nvim-tmux-navigation')
+    require 'nvim-tmux-navigation'.setup{
+        vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft),
+        vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown),
+        vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp),
+        vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight),
+        vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive),
+        vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+    }
+
+
+  end
+  
+
+}
+
+
 return {
   -- NOTE: First, some plugins that don't require any configuration
 
@@ -148,6 +262,12 @@ return {
     },
     build = ':TSUpdate',
   },
+
+  NVIM_TREE,
+  BARBAR,
+  TOGGLETERM,
+  DASHBOARD_NVIM,
+  NVIM_TMUX_NAVIGATION,
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
