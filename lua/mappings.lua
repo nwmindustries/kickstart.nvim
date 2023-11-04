@@ -27,7 +27,9 @@ vim.keymap.set('n', '<M-l>', '<cmd>bnext<cr>', {silent=true})
 vim.keymap.set('n', 'tn', '<cmd>tabnew<cr>')
 vim.keymap.set('n', '<tab>', 'gt', {silent=true, noremap=true})  -- moves to next tab page. Idfk maybe delete this
 vim.keymap.set('n', '<S-tab>', 'gT', {silent=true, noremap=true})  -- moves to previous tab page. Idfk maybe delete this
-vim.keymap.set('n', 'to', '<cmd>tabedit % | tabprevious<cr>', {noremap=true}) 
+vim.keymap.set('n', 'to', '<cmd>tabedit % | tabprevious<cr>', {noremap=true})
+vim.keymap.set('n', 'th', '<cmd>tabmove -1<cr>', {noremap=true, silent=true})
+vim.keymap.set('n', 'tl', '<cmd>tabmove +1<cr>', {noremap=true, silent=true})
 -- Scrolling and window resizing
 vim.keymap.set('n', '<M-[>', '<cmd>vertical resize +4<cr>', {silent=true, noremap=true, nowait=true})
 vim.keymap.set('n', '<M-]>', '<cmd>vertical resize -4<cr>', {silent=true, noremap=true, nowait=true})
