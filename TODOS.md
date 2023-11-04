@@ -1,12 +1,18 @@
 - Cursor red on blank line
 
-- api-autocmd
-
 - Collate all plugin specs into single file
 
+<<<<<<< HEAD
 - Mess around with formatting plugin specs yourself
 
 - Figure out what the g key does
+=======
+- Open tab without switching to it  
+
+- map te to open the current buffer in new tab and switch to it 
+- map tl to push tab to right
+- map th to push tab to left
+>>>>>>> parent of c72fc46 (tab pushing)
 
 - bpython in terminal? 
 -
