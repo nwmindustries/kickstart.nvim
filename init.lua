@@ -24,15 +24,9 @@ require('mappings')
 require('options')
 
 
--- vim.cmd[[highlight NvimTreeCursorLine guibg=blue guifg=white]]
 vim.cmd[[highlight NvimTreeCursorLine guifg=violet guibg=black]]
 vim.cmd[[highlight NvimTreeModifiedFile guifg=red]]
 
--- vim.cmd('autocmd! FileType help wincmd L')
-
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
@@ -42,47 +36,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- vim.api.nvim_create_autocmd("BufEnter", {
---     nested = true,
---     callback = function()
---         if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
---             vim.cmd "NvimTreeClose"
---             vim.cmd "qa"
---         end
---   end
--- })
-
--- local tree = require'nvim-tree'
---
--- function close_if_last_buffer()
---   if #vim.api.nvim_list_wins() == 1 then    
---     tree.close()
---
---     -- vim.cmd('qa')
---   end
--- end
---
--- vim.cmd[[ autocmd BufDelete * lua close_if_last_buffer() ]]
-
-
--- local function close_tree() 
---   if #vim.api.nvim_list_wins() 
---
---
--- end
-
-
-
-
-
-
-
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
-
--- [[ Configure Treesitter ]]
--- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
@@ -150,17 +106,9 @@ vim.defer_fn(function()
   }
 end, 0)
 
-
-
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
-  -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -262,8 +210,6 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
--- [[ Configure nvim-cmp ]]
--- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
@@ -309,6 +255,3 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
