@@ -14,6 +14,7 @@
 - map th to push tab to left
 >>>>>>> parent of c72fc46 (tab pushing)
 
+
 - bpython in terminal? 
 -
 - Maybe set cursor to highlight always and not change on isert
