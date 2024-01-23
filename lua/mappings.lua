@@ -5,6 +5,8 @@ vim.keymap.set('n', ';', ':')
 
 vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<CR>", {silent=true})
 
+-- Editing
+vim.keymap.set({'n','v'}, "x", '"_x')
 
 -- Navigation
 vim.keymap.set({'n', 'v'}, "L", "$", {silent=true})
