@@ -9,3 +9,6 @@ function ChangeCursorOnBlankLine()
     vim.cmd('hi Cursor guifg=NONE guibg=NONE')
   end
 end
+
+vim.cmd('autocmd BufEnter * set formatoptions-=cro')
+vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
