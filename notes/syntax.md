@@ -1,5 +1,8 @@
 
 
+
+
+
 # Gets the current list of window handles:
 `vim.api.nvim_list_wins()`
 
