@@ -103,8 +103,26 @@ vim.defer_fn(function()
         },
       },
     },
+    autotag = {
+      enable = true,
+      enable_close = true,
+    },
   }
 end, 0)
+
+require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+    enable_rename = true,
+    enable_close = true,
+    enable_close_on_slash = true,
+  }
+}
+-- OR
+require('nvim-ts-autotag').setup({
+  filetypes = { "html" , "xml" },
+})
+
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
