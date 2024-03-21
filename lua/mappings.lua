@@ -22,22 +22,25 @@ vim.keymap.set('n', 'tx', '<cmd>tabclose<cr>', {silent=true})
 
 
 -- Tabs
-vim.keymap.set('n', '<leader>ta', '<cmd>tab ba<cr>', {silent=true}) -- open all buffers in tabs
-vim.keymap.set('n', 'te', '<cmd>tabedit %<cr>', {silent=true, noremap=true}) -- Opens current buffer in a new tabpage 
-vim.keymap.set('n', '<M-h>', '<cmd>bprevious<cr>', {silent=true})
-vim.keymap.set('n', '<M-l>', '<cmd>bnext<cr>', {silent=true})
-vim.keymap.set('n', 'tn', '<cmd>tabnew<cr>')
-vim.keymap.set('n', '<tab>', 'gt', {silent=true, noremap=true})  -- moves to next tab page. Idfk maybe delete this
-vim.keymap.set('n', '<S-tab>', 'gT', {silent=true, noremap=true})  -- moves to previous tab page. Idfk maybe delete this
-vim.keymap.set('n', 'to', '<cmd>tabedit % | tabprevious<cr>', {noremap=true})
-vim.keymap.set('n', 'th', '<cmd>tabmove -1<cr>', {noremap=true, silent=true})
-vim.keymap.set('n', 'tl', '<cmd>tabmove +1<cr>', {noremap=true, silent=true})
+vim.keymap.set('n', '<leader>ta', '<cmd>tab ba<cr>', {silent=true, desc = "open all buffers in tabs"}) -- open all buffers in tabs
+vim.keymap.set('n', 'te', '<cmd>tabedit %<cr>', {silent=true, noremap=true, desc = "open current buffer in new tabpage"}) -- Opens current buffer in a new tabpage 
+vim.keymap.set('n', '<M-h>', '<cmd>bprevious<cr>', {silent=true, desc = "switch window to previous buffer"})
+vim.keymap.set('n', '<M-l>', '<cmd>bnext<cr>', {silent=true, desc = "switch window to next buffer"})
+vim.keymap.set('n', 'tn', '<cmd>tabnew<cr>', {desc = "opens a new empty tab page"})
+vim.keymap.set('n', '<tab>', 'gt', {silent=true, noremap=true, desc = "move to next tab page"})  -- moves to next tab page. Idfk maybe delete this
+vim.keymap.set('n', '<S-tab>', 'gT', {silent=true, noremap=true, desc = "Move to previous tab"})  -- moves to previous tab page. Idfk maybe delete this
+vim.keymap.set('n', 'to', '<cmd>tabedit % | tabprevious<cr>', {noremap=true, desc = "Open buffer in new tabpage but dont switch"})
+vim.keymap.set('n', 'th', '<cmd>tabmove -1<cr>', {noremap=true, silent=true, desc = "Move current tab page to the left"})
+vim.keymap.set('n', 'tl', '<cmd>tabmove +1<cr>', {noremap=true, silent=true, desc = "Move current tab page to the righta"})
 -- Scrolling and window resizing
 vim.keymap.set('n', '<M-[>', '<cmd>vertical resize +4<cr>', {silent=true, noremap=true, nowait=true})
 vim.keymap.set('n', '<M-]>', '<cmd>vertical resize -4<cr>', {silent=true, noremap=true, nowait=true})
-vim.keymap.set({'n', 'v'}, '<M-k>', '3<C-Y>', {silent=true}) -- scroll up
+vim.keymap.set({'n', 'v'}, '<M-k>', '3<C-Y>', {silent=true, desc = "scroll up"}) -- scroll up
 vim.keymap.set({'n', 'v'}, '<M-j>', '3<C-E>', {silent=true}) -- scroll down
-vim.api.nvim_set_keymap('n', 'J', 'O<Esc>', { noremap = true, silent = true })
+
+
+vim.keymap.set('i', '<C-p>', '<C-r>+', {silent=true})
+vim.api.nvim_set_keymap('n', 'J', 'O<Esc>', { noremap = true, silent = true, desc = "Moves line Down" })
 -----------Mappings from original kicktstart init.nvim---------------------
 
 
