@@ -14,7 +14,10 @@
 ```vim
 messages "Shows messages from the command line
 au "Lists autocommands
-```
+
+
+# THIS IS THE `DATA` DIRECTORY THAT MASON IS TRYING TO RUN GO AT
+/home/frerebo/.local/share/nvim/mason/bin
 
   
 
