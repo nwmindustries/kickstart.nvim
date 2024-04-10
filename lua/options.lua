@@ -44,6 +44,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
-
-
-vim.opt.foldmethod = "syntax"
+vim.opt.foldmethod="expr"
+vim.opt.foldtext = ""
+-- vim.opt.foldmethod = "syntax"
+vim.opt.foldlevelstart = 1
