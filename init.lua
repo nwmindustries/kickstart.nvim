@@ -39,7 +39,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
--- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
@@ -110,15 +109,6 @@ vim.defer_fn(function()
   }
 end, 0)
 
-require'nvim-treesitter.configs'.setup {
-  autotag = {
-    enable = true,
-    enable_rename = true,
-    enable_close = true,
-    enable_close_on_slash = true,
-  }
-}
--- OR
 require('nvim-ts-autotag').setup({
   filetypes = { "html" , "xml" },
 })

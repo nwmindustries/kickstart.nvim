@@ -1,11 +1,12 @@
 return {
   'chentoast/marks.nvim',
-  config = function()
-    require('marks').setup{
-      default_mappings = true,
-      sgns = true,
-      mappings = {}
-    }
-  end
+  config = true
+  -- config = function()
+  --   require('marks').setup{
+  --     default_mappings = true,
+  --     sgns = true,
+  --     mappings = {}
+  --   }
+  -- end
 }
 
