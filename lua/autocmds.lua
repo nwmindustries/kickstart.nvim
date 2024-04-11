@@ -20,3 +20,22 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
 })
 
 -- TODO: FIGURE OUT HOW TO fold-foldtext
+
+
+vim.opt.foldtext = 'MyFoldText()'
+
+-- function MyFoldText()
+--     local line = vim.fn.getline(vim.v.foldstart)
+--     local sub = line:gsub("/\\*",""):gsub("\\*/",""):gsub("{{{".."-","")
+--     return vim.fn.foldtext() .. sub
+-- end
+
+vim.cmd([[
+    :set foldtext=MyFoldText()
+    :function MyFoldText()
+    :  let line = getline(v:foldstart)
+    :  let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+    :  return v:folddashes .. sub
+    :endfunction
+
+]])
