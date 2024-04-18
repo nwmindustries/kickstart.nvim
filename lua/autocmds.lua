@@ -19,16 +19,8 @@ vim.api.nvim_create_autocmd({"BufEnter"}, {
   command = "set foldexpr=nvim_treesitter#foldexpr()"
 })
 
--- TODO: FIGURE OUT HOW TO fold-foldtext
 
-
-vim.opt.foldtext = 'MyFoldText()'
-
--- function MyFoldText()
---     local line = vim.fn.getline(vim.v.foldstart)
---     local sub = line:gsub("/\\*",""):gsub("\\*/",""):gsub("{{{".."-","")
---     return vim.fn.foldtext() .. sub
--- end
+-- vim.opt.foldtext = 'MyFoldText()'
 
 vim.cmd([[
     :set foldtext=MyFoldText()
@@ -39,3 +31,12 @@ vim.cmd([[
     :endfunction
 
 ]])
+
+
+vim.api.nvim_exec([[
+augroup HelpTagMapping
+    autocmd!
+    autocmd FileType help nnoremap gt <C-]> :execute 'tag' expand('<cword>')<CR>
+augroup END
+]], false)
+

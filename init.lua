@@ -23,7 +23,6 @@ require('autocmds')
 require('mappings')
 require('options')
 
-
 vim.cmd[[highlight NvimTreeCursorLine guifg=violet guibg=black]]
 vim.cmd[[highlight NvimTreeModifiedFile guifg=red]]
 

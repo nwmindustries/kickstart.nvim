@@ -24,8 +24,13 @@ vim.keymap.set('n', 'tx', '<cmd>tabclose<cr>', {silent=true})
 -- Tabs
 vim.keymap.set('n', '<leader>ta', '<cmd>tab ba<cr>', {silent=true, desc = "open all buffers in tabs"}) -- open all buffers in tabs
 vim.keymap.set('n', 'te', '<cmd>tabedit %<cr>', {silent=true, noremap=true, desc = "open current buffer in new tabpage"}) -- Opens current buffer in a new tabpage 
+
+
 vim.keymap.set('n', '<M-h>', '<cmd>bprevious<cr>', {silent=true, desc = "switch window to previous buffer"})
 vim.keymap.set('n', '<M-l>', '<cmd>bnext<cr>', {silent=true, desc = "switch window to next buffer"})
+
+vim.keymap.set('n', '<leader>ch', '<cmd>ChatGPT<cr>', {silent=true, desc= "open ChatGPT"})
+
 vim.keymap.set('n', 'tn', '<cmd>tabnew<cr>', {desc = "opens a new empty tab page"})
 vim.keymap.set('n', '<tab>', 'gt', {silent=true, noremap=true, desc = "move to next tab page"})  -- moves to next tab page. Idfk maybe delete this
 vim.keymap.set('n', '<S-tab>', 'gT', {silent=true, noremap=true, desc = "Move to previous tab"})  -- moves to previous tab page. Idfk maybe delete this
