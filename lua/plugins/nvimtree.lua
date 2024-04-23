@@ -1,3 +1,15 @@
+--[[
+TODOS:
+  - Figure out how to collapse and expand directories recursively
+  - Remember to filter
+  - Better keymap for opening folder in a new tab page
+  - Keymap for opening folder as a vertical split
+  - Is it possible to change highlights based on:
+    - what is open
+    - what has changes
+]]--
+
+
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
@@ -7,13 +19,14 @@ return {
   },
   config = function()
 
-    -- vim.cmd[[highlight NvimTreeCursorLine guifg=violet guibg=black]]
+    -- vim.cmd[[highligh--[[  ]]t NvimTreeCursorLine guifg=violet guibg=black]]
     vim.cmd[[highlight NvimTreeModifiedFile guifg=red]]
     vim.cmd("highlight NvimTreeNormal guifg=#98c379")
 
     require("nvim-tree").setup {
       sort = {
-        files_first = false--[[ true ]]
+        files_first = true, -- false
+        folders_first = true
       },
       sync_root_with_cwd = true,
       on_attach = function(bufnr)
