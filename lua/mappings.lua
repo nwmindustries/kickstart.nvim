@@ -16,6 +16,7 @@ local km = vim.keymap
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+km.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 km.set({'n', 'v'}, 'q', '<Nop>', {silent=true})
 km.set('n', ';', ':')
 

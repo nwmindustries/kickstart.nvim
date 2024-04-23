@@ -40,3 +40,13 @@ augroup HelpTagMapping
 augroup END
 ]], false)
 
+
+
+
+
+-- make console commands case insnesitive?
+-- vim.cmd('command! -nargs=* -complete=command Command call Command(<q-args>)')
+-- function Command(cmd)
+--     local insensitive_cmd = cmd:lower()
+--     vim.cmd(insensitive_cmd)
+-- end

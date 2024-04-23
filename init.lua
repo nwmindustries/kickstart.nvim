@@ -1,4 +1,6 @@
 -- TODO THIS IS NOW TO BE REFACTORED
+vim.g.loaded_netrw       = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 --    https://github.com/folke/lazy.nvim
@@ -17,8 +19,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- These are for stuff in `lua` directory
-vim.g.loaded_netrw       = 1
-vim.g.loaded_netrwPlugin = 1
 require('lazy').setup("plugins")
 require('autocmds')
 require('mappings')
