@@ -1,3 +1,4 @@
+-- TODO THIS IS NOW TO BE REFACTORED
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 --    https://github.com/folke/lazy.nvim
