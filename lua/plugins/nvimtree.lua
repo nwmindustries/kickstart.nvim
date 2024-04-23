@@ -7,11 +7,13 @@ return {
   },
   config = function()
 
+    -- vim.cmd[[highlight NvimTreeCursorLine guifg=violet guibg=black]]
+    vim.cmd[[highlight NvimTreeModifiedFile guifg=red]]
     vim.cmd("highlight NvimTreeNormal guifg=#98c379")
 
     require("nvim-tree").setup {
       sort = {
-        files_first = true
+        files_first = false--[[ true ]]
       },
       sync_root_with_cwd = true,
       on_attach = function(bufnr)
@@ -36,7 +38,7 @@ return {
 
       update_focused_file = {
         enable = true,
-      } 
+      }
     }
 
 

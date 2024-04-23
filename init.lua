@@ -23,8 +23,6 @@ require('autocmds')
 require('mappings')
 require('options')
 
-vim.cmd[[highlight NvimTreeCursorLine guifg=violet guibg=black]]
-vim.cmd[[highlight NvimTreeModifiedFile guifg=red]]
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
