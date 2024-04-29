@@ -12,7 +12,7 @@ return {
     }
 
 
-  end
+  end,
   
 
 }

@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({ {import = "frerebo.plugins"}, {import = "frerebo.plugins.lsp"} }, {
 
     checker = {
-        enabled = true,
+        enabled = false,
     },
     change_detection = {
 
