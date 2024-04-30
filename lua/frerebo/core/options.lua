@@ -1,6 +1,7 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
+vim.g.nvim_tree_hide_dotfiles = 1
 
 -- Set highlight on search
 vim.o.hlsearch = false

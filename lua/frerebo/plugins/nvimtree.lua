@@ -20,11 +20,11 @@ return {
   },
   config = function()
 
-    -- vim.cmd[[highligh--[[  ]]t NvimTreeCursorLine guifg=violet guibg=black]]
     vim.cmd[[highlight NvimTreeModifiedFile guifg=red]]
     vim.cmd("highlight NvimTreeNormal guifg=#98c379")
 
     require("nvim-tree").setup {
+      
       sort = {
         files_first = true, -- false
         folders_first = true
@@ -33,6 +33,9 @@ return {
       on_attach = function(bufnr)
         local api = require "nvim-tree.api"
 
+        api.tree.toggle_hidden_filter()
+
+        
         local function opts(desc)
           return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
         end
