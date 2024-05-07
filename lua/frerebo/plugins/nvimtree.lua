@@ -4,13 +4,7 @@ TODOS:
   - Remember to filter
   - Better keymap for opening folder in a new tab page
   - Keymap for opening folder as a vertical split
-  - Is it possible to change highlights based on:
-    - what is open
-    - what has changes
-  - Default to hiding dot files
   - How to disable tab pane switching to nvim tree?
-  ;w
-
 ]]--
 
 
@@ -28,7 +22,7 @@ local function my_on_attach(bufnr)
         end
 
         api.config.mappings.default_on_attach(bufnr)
-        
+
         -- vim.keymap.set('n', '<leader>s',   api.node.open.vertical,              opts('Open: Vertical Split'))
         vim.keymap.set('n', '<leader><tab>',   api.node.open.tab,                   opts('Open: New Tab'))
         vim.keymap.set('n', 'K',       api.node.navigate.sibling.prev,      opts('Previous Sibling'))
@@ -56,8 +50,8 @@ return {
       hijack_cursor = true,
       on_attach = my_on_attach,
       sort = {
-        files_first = true, -- false
-        folders_first = true
+        -- files_first = true, -- false
+        -- folders_first = true
       },
       update_focused_file = {
         enable = true,
@@ -80,14 +74,18 @@ return {
         glyphs = {
           modified = "",
           folder = {
-            arrow_closed = ""
+            -- arrow_closed = ""
           }
         }
       }
     },
       view = {
         width = 40,
-        number = true
+        number = true,
+        float = {
+          enable = true
+
+        },
       },
     }
   end

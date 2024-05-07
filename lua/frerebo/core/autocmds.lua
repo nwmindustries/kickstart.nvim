@@ -1,14 +1,8 @@
+vim.wo.cursorline = true
 vim.cmd('autocmd FileType help wincmd L')
 
 
-function ChangeCursorOnBlankLine()
-  local line_content = vim.fn.getline('.')
-  if line_content == '' then
-    vim.cmd('hi Cursor guifg=red guibg=red')
-  else
-    vim.cmd('hi Cursor guifg=NONE guibg=NONE')
-  end
-end
+
 
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
@@ -39,14 +33,3 @@ augroup HelpTagMapping
     autocmd FileType help nnoremap gt <C-]> :execute 'tag' expand('<cword>')<CR>
 augroup END
 ]], false)
-
-
-
-
-
--- make console commands case insnesitive?
--- vim.cmd('command! -nargs=* -complete=command Command call Command(<q-args>)')
--- function Command(cmd)
---     local insensitive_cmd = cmd:lower()
---     vim.cmd(insensitive_cmd)
--- end
