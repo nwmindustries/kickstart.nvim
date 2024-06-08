@@ -165,6 +165,16 @@ map_change_delete_to_black_hole()
 
 
 
+-- Function to remap x to delete to the system clipboard
+local function map_cut_to_clipboard()
+  vim.api.nvim_set_keymap('n', 'x', '"+x', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('v', 'x', '"+d', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', 'X', '"+X', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('v', 'X', '"+d', { noremap = true, silent = true })
+end
+
+-- Apply the mappings
+map_cut_to_clipboard()
 
 
 
