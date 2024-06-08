@@ -133,7 +133,26 @@ augroup END
 
 ]])
 
+-- Remap change and delete commands to use the black hole register
+local function map_change_delete_to_black_hole()
+  -- List of change commands
+  local change_commands = { 'c', 'C', 'cw', 'c$', 'c0', 'ciw', 'ci"', 'ci\'', 'ci(', 'ci{', 'ci[' }
+  -- List of delete commands
+  local delete_commands = { 'd', 'D', 'dw', 'd$', 'd0', 'diw', 'di"', 'di\'', 'di(', 'di{', 'di[' }
 
+  for _, cmd in ipairs(change_commands) do
+    vim.api.nvim_set_keymap('n', cmd, '"_' .. cmd, { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('v', cmd, '"_' .. cmd, { noremap = true, silent = true })
+  end
+
+  for _, cmd in ipairs(delete_commands) do
+    vim.api.nvim_set_keymap('n', cmd, '"_' .. cmd, { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('v', cmd, '"_' .. cmd, { noremap = true, silent = true })
+  end
+end
+
+-- Apply the mappings
+map_change_delete_to_black_hole()
 
 
 

@@ -83,7 +83,7 @@ return {
         width = 40,
         number = true,
         float = {
-          enable = true
+          enable = false
 
         },
       },
