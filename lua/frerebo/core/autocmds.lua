@@ -1,9 +1,5 @@
 vim.wo.cursorline = true
 vim.cmd('autocmd FileType help wincmd L')
-
-
-
-
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 vim.cmd('autocmd FileType html setlocal shiftwidth=4 tabstop=4')
@@ -25,7 +21,6 @@ vim.cmd([[
     :endfunction
 
 ]])
-
 
 vim.api.nvim_exec([[
 augroup HelpTagMapping

@@ -1,16 +1,7 @@
---[[
-TODOS:
-  -refactor every instance making use of `cmd`
-
-]]
-
 -- Anonymous function that doubles a number
 local result = (function(x) return x * 2 end)(5)
 print(result)  -- Output: 10
 
-local function cmd(txt)
-  return "<cmd>" .. txt .. "<cr>"
-end
 
 local km = vim.keymap
 
@@ -153,17 +144,6 @@ end
 
 -- Apply the mappings
 map_change_delete_to_black_hole()
-
-
-
-
-
-
-
-
-
-
-
 
 -- Function to remap x to delete to the system clipboard
 local function map_cut_to_clipboard()
