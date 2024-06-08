@@ -1,8 +1,10 @@
-return {
-   'mhinz/vim-startify',
-   init = function() 
+return {}
 
-      vim.g.startify_custom_header = ''
-   end
-
-}
+-- return {
+--    'mhinz/vim-startify',
+--    init = function() 
+--
+--       vim.g.startify_custom_header = ''
+--    end
+--
+-- }
