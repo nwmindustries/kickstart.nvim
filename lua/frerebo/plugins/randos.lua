@@ -86,7 +86,9 @@ local folding = {
   cond = false
 }
 
-
+local rainbows = {
+  "HiPhish/rainbow-delimiters.nvim"
+}
 
 
 return {
@@ -98,7 +100,8 @@ return {
   kmonad,
   marks,
   neogit,
-  bar_bar
+  bar_bar,
+  rainbows
 }
 
 
