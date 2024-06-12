@@ -99,6 +99,29 @@ return {
   {'nvim-treesitter/nvim-treesitter',
     dependencies = {'nvim-treesitter/nvim-treesitter-textobjects'},
     build = ':TSUpdate',
-    disable = true
+
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        highlight = {
+          enable = true,
+      },
+
+      indent = {enable = true},
+
+      incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<C-space>",
+        node_incremental = "<C-space>",
+        -- scope_incremental = ??
+        node_decremental = "<C-bs>"
+      }
+    }
+
+
+
+      }
+    end
+
   },
 }

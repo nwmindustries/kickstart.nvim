@@ -54,6 +54,7 @@ km.set({'n', 'v'}, '<M-j>', '3<C-E>', {silent=true}) -- scroll down
 
 km.set('i', '<C-p>', '<C-r>+', {silent=true})
 vim.api.nvim_set_keymap('n', 'J', 'O<Esc>', { noremap = true, silent = true, desc = "Moves line Down" })
+vim.api.nvim_set_keymap('n', 'O', 'J<Esc>', { noremap = true, silent = true, desc = "Joins Line" })
 -----------Mappings from original kicktstart init.nvim---------------------
 
 
@@ -156,6 +157,6 @@ end
 -- Apply the mappings
 map_cut_to_clipboard()
 
-
+vim.cmd([[command! Fuckthis qa!]])
 
 
