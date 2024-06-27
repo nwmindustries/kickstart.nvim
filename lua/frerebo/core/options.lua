@@ -3,6 +3,7 @@
 -- NOTE: You can change these options as you wish!
 vim.g.nvim_tree_hide_dotfiles = 1
 vim.opt.relativenumber = true
+vim.o.numberwidth = 4
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -50,4 +51,20 @@ vim.opt.foldmethod="expr"
 -- vim.opt.foldmethod = "syntax"
 vim.opt.foldlevelstart = 99
 
+-- Set the 'stc' option to display relative line numbers or absolute line numbers
+-- vim.o.stc = '%=%{v:relnum?v:relnum:v:lnum} '
 
+
+
+
+-- vim.cmd([[
+--   highlight EmptyLine ctermbg=black guibg=black
+--   autocmd CursorMoved,CursorMovedI * if getline('.') == '' | highlight CursorLine ctermbg=black guibg=black | endif
+-- ]])
+
+
+
+
+vim.cmd [[
+  highlight CursorLineNr guifg=#ff0000 guibg=#660066 gui=bold 
+]]

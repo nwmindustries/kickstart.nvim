@@ -154,6 +154,8 @@ local defaults = {
     top_p = 1,
     n = 1,
   },
+
+
   openai_edit_params = {
     model = "gpt-3.5-turbo",
     frequency_penalty = 0,
