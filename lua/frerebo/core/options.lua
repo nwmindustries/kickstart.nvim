@@ -2,7 +2,7 @@
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 vim.g.nvim_tree_hide_dotfiles = 1
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 vim.o.numberwidth = 4
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -65,6 +65,6 @@ vim.opt.foldlevelstart = 99
 
 
 
-vim.cmd [[
-  highlight CursorLineNr guifg=#ff0000 guibg=#660066 gui=bold 
-]]
+-- vim.cmd [[
+--   highlight CursorLineNr guifg=#ff0000 guibg=#660066 gui=bold 
+-- ]]

@@ -48,8 +48,8 @@ km.set('n', 'tl', '<cmd>tabmove +1<cr>', {noremap=true, silent=true, desc = "Mov
 -- Scrolling and window resizing
 km.set('n', '<M-[>', '<cmd>vertical resize +4<cr>', {silent=true, noremap=true, nowait=true})
 km.set('n', '<M-]>', '<cmd>vertical resize -4<cr>', {silent=true, noremap=true, nowait=true})
-km.set({'n', 'v'}, '<M-k>', '3<C-Y>', {silent=true, desc = "scroll up"}) -- scroll up
-km.set({'n', 'v'}, '<M-j>', '3<C-E>', {silent=true}) -- scroll down
+km.set({'n', 'v'}, '<M-k>', '5<C-Y>', {silent=true, desc = "scroll up"}) -- scroll up
+km.set({'n', 'v'}, '<M-j>', '5<C-E>', {silent=true}) -- scroll down
 
 
 km.set('i', '<C-p>', '<C-r>+', {silent=true})
