@@ -47,13 +47,12 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 
-vim.opt.foldmethod="expr"
--- vim.opt.foldmethod = "syntax"
-vim.opt.foldlevelstart = 99
+vim.o.foldmethod="expr"
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldlevelstart = 99
 
 -- Set the 'stc' option to display relative line numbers or absolute line numbers
 -- vim.o.stc = '%=%{v:relnum?v:relnum:v:lnum} '
-
 
 
 

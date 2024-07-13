@@ -69,7 +69,7 @@ return {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark', --TODO disable this
+        -- theme = 'onedark', --TODO disable this
         component_separators = '|',
         section_separators = '',
       },

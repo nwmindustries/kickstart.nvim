@@ -51,7 +51,7 @@ local highlight_current = {
 }
 
 local colortheme =  { {'navarasu/onedark.nvim',
-    -- cond = false,
+    cond = true,
     priority = 1000,
     config = function()
       require('onedark').setup {
@@ -68,6 +68,22 @@ local colortheme =  { {'navarasu/onedark.nvim',
   }
 
 }
+
+
+local colorcollection = {
+  {
+    'rafi/awesome-vim-colorschemes',
+    lazy = false,  -- load this plugin immediately
+    priority = 1000, -- high priority to ensure it loads early
+  },
+  {
+    'flazz/vim-colorschemes',
+    lazy = false,  -- load this plugin immediately
+    priority = 1000, -- high priority to ensure it loads early
+  },
+}
+
+
 
 local startify_dash =  {
    'mhinz/vim-startify',
@@ -102,7 +118,8 @@ return {
   marks,
   neogit,
   bar_bar,
-  rainbows
+  rainbows,
+  colorcollection
 }
 
 
