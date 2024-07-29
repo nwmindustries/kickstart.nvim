@@ -121,7 +121,11 @@ return {
         -- scope_incremental = ??
         node_decremental = "<C-bs>"
       }
-    }
+    },
+        fold = {
+          enable = true
+        }
+
 
 
 
