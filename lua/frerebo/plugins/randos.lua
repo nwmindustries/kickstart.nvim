@@ -107,6 +107,10 @@ local rainbows = {
   "HiPhish/rainbow-delimiters.nvim"
 }
 
+local wezterm_mux_navigator = {
+    "jonboh/wezterm-mux.nvim"
+}
+
 
 return {
   folding,
@@ -119,7 +123,8 @@ return {
   neogit,
   bar_bar,
   rainbows,
-  colorcollection
+  colorcollection,
+  wezterm_mux_navigator
 }
 
 
