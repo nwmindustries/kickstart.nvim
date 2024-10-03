@@ -122,7 +122,14 @@ return {
             Lua = {
               -- make the language server recognize "vim" global
               diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "awesome", "client", "screen", "root", "mouse" },
+              },
+              workspace = {
+                library = {
+                    -- Tell the LSP where the Awesome libraries are
+                    [vim.fn.expand("/usr/share/awesome/lib")] = true,
+                    [vim.fn.expand("/usr/share/lua/5.1")] = true,
+                }
               },
               completion = {
                 callSnippet = "Replace",
