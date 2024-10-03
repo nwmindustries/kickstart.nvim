@@ -67,3 +67,13 @@ vim.o.foldlevelstart = 99
 -- vim.cmd [[
 --   highlight CursorLineNr guifg=#ff0000 guibg=#660066 gui=bold 
 -- ]]
+
+-- STARTIFY
+vim.cmd([[
+let g:startify_session_persistence = 1
+let g:startify_session_savecmds = []
+let g:startify_session_savevars = [
+           \ 'g:startify_session_savevars',
+           \ 'g:startify_session_savecmds',
+           \ ]
+]])
