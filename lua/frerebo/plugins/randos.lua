@@ -107,6 +107,7 @@ local rainbows = {
   "HiPhish/rainbow-delimiters.nvim"
 }
 
+-- NOT RETURNED!!!!!!!!!!!!!!!!!
 local wezterm_mux_navigator = {
     "jonboh/wezterm-mux.nvim"
 }
@@ -124,7 +125,6 @@ return {
   bar_bar,
   rainbows,
   colorcollection,
-  wezterm_mux_navigator
 }
 
 
