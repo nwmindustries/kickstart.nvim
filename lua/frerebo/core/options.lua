@@ -55,7 +55,6 @@ vim.o.foldlevelstart = 99
 -- vim.o.stc = '%=%{v:relnum?v:relnum:v:lnum} '
 
 
-
 -- vim.cmd([[
 --   highlight EmptyLine ctermbg=black guibg=black
 --   autocmd CursorMoved,CursorMovedI * if getline('.') == '' | highlight CursorLine ctermbg=black guibg=black | endif

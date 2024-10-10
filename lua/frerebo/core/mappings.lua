@@ -1,6 +1,6 @@
 -- Anonymous function that doubles a number
 local result = (function(x) return x * 2 end)(5)
-print(result)  -- Output: 10
+print(result) -- Output: 10
 
 
 local km = vim.keymap
@@ -8,51 +8,51 @@ local km = vim.keymap
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 km.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
-km.set({'n', 'v'}, 'q', '<Nop>', {silent=true})
+km.set({ 'n', 'v' }, 'q', '<Nop>', { silent = true })
 km.set('n', ';', ':')
 
-km.set('n', '<leader>e', ":NvimTreeToggle<CR>", {silent=true})
+km.set('n', '<leader>e', ":NvimTreeToggle<CR>", { silent = true })
 
 -- Editing
-km.set({'n','v'}, "x", '"_x')
+km.set({ 'n', 'v' }, "x", '"_x')
 
 -- Navigation
-km.set({'n', 'v'}, "L", "$", {silent=true})
-km.set({'n', 'v'}, "H", "0", {silent=true})
+km.set({ 'n', 'v' }, "L", "$", { silent = true })
+km.set({ 'n', 'v' }, "H", "0", { silent = true })
 
-km.set('n', 'U', '<C-r>', {silent=true})
+km.set('n', 'U', '<C-r>', { silent = true })
 
--- Windows and buffers 
-km.set('n', 'bx', '<cmd>bd<cr>', {silent=true})
-km.set('n', 'bc', '<cmd>close<cr>', {silent=true}) --window close
-km.set('n', 'bs', '<cmd>vsplit<cr>', {silent=true})
-km.set('n', 'tx', '<cmd>tabclose<cr>', {silent=true})
+-- Windows and buffers
+km.set('n', 'bx', '<cmd>bd<cr>', { silent = true })
+km.set('n', 'bc', '<cmd>close<cr>', { silent = true }) --window close
+km.set('n', 'bs', '<cmd>vsplit<cr>', { silent = true })
+km.set('n', 'tx', '<cmd>tabclose<cr>', { silent = true })
 
 
 -- Tabs
-km.set('n', '<leader>ta', '<cmd>tab ba<cr>', {silent=true, desc = "open all buffers in tabs"}) -- open all buffers in tabs
-km.set('n', 'te', '<cmd>tabedit %<cr>', {silent=true, noremap=true, desc = "open current buffer in new tabpage"}) -- Opens current buffer in a new tabpage 
+km.set('n', '<leader>ta', '<cmd>tab ba<cr>', { silent = true, desc = "open all buffers in tabs" })                -- open all buffers in tabs
+km.set('n', 'te', '<cmd>tabedit %<cr>', { silent = true, noremap = true, desc = "open current buffer in new tabpage" }) -- Opens current buffer in a new tabpage
 
 
-km.set('n', '<M-h>', '<cmd>bprevious<cr>', {silent=true, desc = "switch window to previous buffer"})
-km.set('n', '<M-l>', '<cmd>bnext<cr>', {silent=true, desc = "switch window to next buffer"})
+km.set('n', '<M-h>', '<cmd>bprevious<cr>', { silent = true, desc = "switch window to previous buffer" })
+km.set('n', '<M-l>', '<cmd>bnext<cr>', { silent = true, desc = "switch window to next buffer" })
 
-km.set('n', '<leader>ch', '<cmd>ChatGPT<cr>', {silent=true, desc= "open ChatGPT"})
 
-km.set('n', 'tn', '<cmd>tabnew<cr>', {desc = "opens a new empty tab page"})
-km.set('n', '<tab>', 'gt', {silent=true, noremap=true, desc = "move to next tab page"})  -- moves to next tab page. Idfk maybe delete this
-km.set('n', '<S-tab>', 'gT', {silent=true, noremap=true, desc = "Move to previous tab"})  -- moves to previous tab page. Idfk maybe delete this
-km.set('n', 'to', '<cmd>tabedit % | tabprevious<cr>', {noremap=true, desc = "Open buffer in new tabpage but dont switch"})
-km.set('n', 'th', '<cmd>tabmove -1<cr>', {noremap=true, silent=true, desc = "Move current tab page to the left"})
-km.set('n', 'tl', '<cmd>tabmove +1<cr>', {noremap=true, silent=true, desc = "Move current tab page to the righta"})
+km.set('n', 'tn', '<cmd>tabnew<cr>', { desc = "opens a new empty tab page" })
+km.set('n', '<tab>', 'gt', { silent = true, noremap = true, desc = "move to next tab page" }) -- moves to next tab page. Idfk maybe delete this
+km.set('n', '<S-tab>', 'gT', { silent = true, noremap = true, desc = "Move to previous tab" }) -- moves to previous tab page. Idfk maybe delete this
+km.set('n', 'to', '<cmd>tabedit % | tabprevious<cr>', { noremap = true, desc =
+"Open buffer in new tabpage but dont switch" })
+km.set('n', 'th', '<cmd>tabmove -1<cr>', { noremap = true, silent = true, desc = "Move current tab page to the left" })
+km.set('n', 'tl', '<cmd>tabmove +1<cr>', { noremap = true, silent = true, desc = "Move current tab page to the righta" })
 -- Scrolling and window resizing
-km.set('n', '<M-[>', '<cmd>vertical resize +4<cr>', {silent=true, noremap=true, nowait=true})
-km.set('n', '<M-]>', '<cmd>vertical resize -4<cr>', {silent=true, noremap=true, nowait=true})
-km.set({'n', 'v'}, '<M-k>', '5<C-Y>', {silent=true, desc = "scroll up"}) -- scroll up
-km.set({'n', 'v'}, '<M-j>', '5<C-E>', {silent=true}) -- scroll down
+km.set('n', '<M-[>', '<cmd>vertical resize +4<cr>', { silent = true, noremap = true, nowait = true })
+km.set('n', '<M-]>', '<cmd>vertical resize -4<cr>', { silent = true, noremap = true, nowait = true })
+km.set({ 'n', 'v' }, '<M-k>', '5<C-Y>', { silent = true, desc = "scroll up" }) -- scroll up
+km.set({ 'n', 'v' }, '<M-j>', '5<C-E>', { silent = true })               -- scroll down
 
 
-km.set('i', '<C-p>', '<C-r>+', {silent=true})
+km.set('i', '<C-p>', '<C-r>+', { silent = true })
 vim.api.nvim_set_keymap('n', 'J', 'O<Esc>', { noremap = true, silent = true, desc = "Moves line Down" })
 vim.api.nvim_set_keymap('n', 'O', 'J<Esc>', { noremap = true, silent = true, desc = "Joins Line" })
 -----------Mappings from original kicktstart init.nvim---------------------
@@ -78,7 +78,7 @@ km.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics l
 
 -- See `:help telescope.builtin`
 km.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-km.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+-- km.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 km.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -159,29 +159,17 @@ map_cut_to_clipboard()
 
 vim.cmd([[command! Fuckthis qa!]])
 
-
+vim.api.nvim_create_user_command('Format', function()
+  vim.lsp.buf.format()
+end, {})
 
 
 
 
 
 -- Both visual and normal mode for each, so you can open with a visual selection or without.
-vim.api.nvim_set_keymap('v', '<leader>a', ':GPTModelsCode<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>a', ':GPTModelsCode<CR>', { noremap = true })
+vim.api.nvim_set_keymap('v', '<leader>gc', ':GPTModelsCode<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gc', ':GPTModelsCode<CR>', { noremap = true })
 
-vim.api.nvim_set_keymap('v', '<leader>c', ':GPTModelsChat<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>c', ':GPTModelsChat<CR>', { noremap = true })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+vim.api.nvim_set_keymap('v', '<leader>gp', ':GPTModelsChat<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>gp', ':GPTModelsChat<CR>', { noremap = true })
