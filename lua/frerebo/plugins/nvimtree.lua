@@ -1,11 +1,3 @@
---[[
-TODOS:
-  - Figure out how to collapse and expand directories recursively
-  - Remember to filter
-  - Better keymap for opening folder in a new tab page
-  - Keymap for opening folder as a vertical split
-  - How to disable tab pane switching to nvim tree?
-]]--
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------

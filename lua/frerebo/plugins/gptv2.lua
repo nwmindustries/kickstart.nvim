@@ -3,5 +3,6 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-telescope/telescope.nvim"
-  }
+  },
+  event = 'VimEnter'
 }
