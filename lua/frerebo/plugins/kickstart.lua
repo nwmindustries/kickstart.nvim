@@ -4,25 +4,6 @@ return {
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
 
-  -- {
-  --   -- LSP Configuration & Plugins
-  --   'neovim/nvim-lspconfig',
-  --   dependencies = {
-  --     -- Automatically install LSPs to stdpath for neovim
-  --     'williamboman/mason.nvim',
-  --     'williamboman/mason-lspconfig.nvim',
-  --
-  --     -- Useful status updates for LSP
-  --     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-  --     { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
-  --
-  --     -- Additional lua configuration, makes nvim stuff amazing!
-  --     'folke/neodev.nvim',
-  --   },
-  -- },
-
-
-  -- { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -40,25 +21,6 @@ return {
 
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
-        -- vim.keymap.set({ 'n', 'v' }, ']c', function()
-        --   if vim.wo.diff then
-        --     return ']c'
-        --   end
-        --   vim.schedule(function()
-        --     gs.next_hunk()
-        --   end)
-        --   return '<Ignore>'
-        -- end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
-
-        -- vim.keymap.set({ 'n', 'v' }, '[c', function()
-        --   if vim.wo.diff then
-        --     return '[c'
-        --   end
-        --   vim.schedule(function()
-        --     gs.prev_hunk()
-        --   end)
-        --   return '<Ignore>'
-        -- end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
       end,
     },
   },
@@ -129,10 +91,6 @@ return {
         fold = {
           enable = true
         }
-
-
-
-
       }
     end
 

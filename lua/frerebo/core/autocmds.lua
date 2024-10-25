@@ -4,9 +4,9 @@ vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 vim.cmd('autocmd FileType html setlocal shiftwidth=4 tabstop=4')
 
-vim.api.nvim_create_autocmd({"BufEnter"}, {
-  pattern = "*",
-  command = "set foldexpr=nvim_treesitter#foldexpr()"
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = "*",
+    command = "set foldexpr=nvim_treesitter#foldexpr()"
 })
 
 
@@ -29,6 +29,16 @@ augroup HelpTagMapping
 augroup END
 ]], false)
 
+vim.cmd([[command! HelloWorld lua print("Hello, World!")]])
+
+function hydraWhichKey()
+    require("which-key").show({
+        loop = true, -- this will keep the popup open until you hit <esc>
+    })
+end
+
+vim.cmd([[command! Hydra lua hydraWhichKey()]])
+
 
 
 -- vim.api.nvim_create_autocmd("User", {
@@ -37,4 +47,3 @@ augroup END
 --         vim.cmd("stopinsert")
 --     end,
 -- })
-
