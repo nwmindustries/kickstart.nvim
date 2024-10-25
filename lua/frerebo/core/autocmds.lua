@@ -28,3 +28,13 @@ augroup HelpTagMapping
     autocmd FileType help nnoremap gt <C-]> :execute 'tag' expand('<cword>')<CR>
 augroup END
 ]], false)
+
+
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "TelescopePreviewerLoaded",
+    callback = function()
+        vim.cmd("stopinsert")
+    end,
+})
+
