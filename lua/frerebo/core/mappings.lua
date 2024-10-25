@@ -94,7 +94,7 @@ km.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S
 km.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 km.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 km.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-
+km.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch [B]uffers' })
 -- HIGHLIGHT-CURRENT-N
 
 vim.cmd([[
