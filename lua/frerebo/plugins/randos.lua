@@ -1,7 +1,8 @@
 local bar_bar = {
-  {'romgrk/barbar.nvim',
+  {
+    'romgrk/barbar.nvim',
     dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
     cond = false,
@@ -19,8 +20,8 @@ local bar_bar = {
 local neogit = {
   "NeogitOrg/neogit",
   dependencies = {
-    "nvim-lua/plenary.nvim",         -- required
-    "sindrets/diffview.nvim",        -- optional - Diff integration
+    "nvim-lua/plenary.nvim",  -- required
+    "sindrets/diffview.nvim", -- optional - Diff integration
 
     -- Only one of these is needed, not both.
     "nvim-telescope/telescope.nvim", -- optional
@@ -31,29 +32,46 @@ local neogit = {
 }
 
 local kmonad = {
- 'kmonad/kmonad-vim' 
+  'kmonad/kmonad-vim'
 }
 
 local highlight_current = {
   "rktjmp/highlight-current-n.nvim"
 }
 
-local colortheme =  { {'navarasu/onedark.nvim',
-    cond = true,
-    priority = 1000,
-    config = function()
-      require('onedark').setup {
-        style = 'warmer',
-        toggle_style_key = '<leader>ts'
-      }
-      vim.cmd.colorscheme 'onedark'
-      -- require('onedark').load()
-    end,
-    -- opts = {
-    --   style = 'warmer',
-    --   toggle_style_key = '<leader>ts'
-    -- },
-  }
+local sonokai = {
+  'sainnhe/sonokai',
+  cond = false,
+
+  lazy = false,
+  priority = 1000,
+  config = function()
+    -- Optionally configure and load the colorscheme
+    -- directly inside the plugin declaration.
+    -- vim.g.sonokai_enable_italic = true
+    vim.cmd.colorscheme('sonokai')
+  end
+}
+
+
+
+local colortheme = { {
+  'navarasu/onedark.nvim',
+  cond = true,
+  priority = 1000,
+  config = function()
+    require('onedark').setup {
+      style = 'warmer',
+      toggle_style_key = '<leader>ts'
+    }
+    vim.cmd.colorscheme 'onedark'
+    -- require('onedark').load()
+  end,
+  -- opts = {
+  --   style = 'warmer',
+  --   toggle_style_key = '<leader>ts'
+  -- },
+}
 
 }
 
@@ -61,31 +79,30 @@ local colortheme =  { {'navarasu/onedark.nvim',
 local colorcollection = {
   {
     'rafi/awesome-vim-colorschemes',
-    lazy = false,  -- load this plugin immediately
+    lazy = false,    -- load this plugin immediately
     priority = 1000, -- high priority to ensure it loads early
   },
   {
     'flazz/vim-colorschemes',
-    lazy = false,  -- load this plugin immediately
+    lazy = false,    -- load this plugin immediately
     priority = 1000, -- high priority to ensure it loads early
   },
 }
 
 
 
-local startify_dash =  {
-   'mhinz/vim-startify',
-   init = function() 
-
-      vim.g.startify_custom_header = ''
-   end
+local startify_dash = {
+  'mhinz/vim-startify',
+  init = function()
+    vim.g.startify_custom_header = ''
+  end
 
 }
 
 local folding = {
   "kevinhwang91/nvim-ufo",
   dependencies = {
-    "kevinhwang91/promise-async"},
+    "kevinhwang91/promise-async" },
   -- config = true,
   -- event = 'BufAdd'
   cond = false
@@ -97,7 +114,7 @@ local rainbows = {
 
 -- NOT RETURNED!!!!!!!!!!!!!!!!!
 local wezterm_mux_navigator = {
-    "jonboh/wezterm-mux.nvim"
+  "jonboh/wezterm-mux.nvim"
 }
 
 
@@ -108,30 +125,9 @@ return {
   colortheme,
   highlight_current,
   kmonad,
-  marks,
   neogit,
   bar_bar,
   rainbows,
   colorcollection,
+  sonokai,
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
