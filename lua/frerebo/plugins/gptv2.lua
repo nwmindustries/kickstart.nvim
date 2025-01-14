@@ -4,5 +4,6 @@ return {
     "MunifTanjim/nui.nvim",
     "nvim-telescope/telescope.nvim"
   },
-  event = 'VimEnter'
+  event = 'VimEnter',
 }
+

@@ -4,7 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim",                   opts = {} },
   },
   config = function()
     -- import lspconfig plugin
@@ -120,16 +120,32 @@ return {
           capabilities = capabilities,
           settings = {
             Lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim", "awesome", "client", "screen", "root", "mouse" },
+              runtime = {
+                version = 'Lua 5.3',
+                path = {
+                  '?.lua',
+                  '?/init.lua',
+                  vim.fn.expand '~/.luarocks/share/lua/5.3/?.lua',
+                  vim.fn.expand '~/.luarocks/share/lua/5.3/?/init.lua',
+                  '/usr/share/5.3/?.lua',
+                  '/usr/share/lua/5.3/?/init.lua'
+                }
               },
+              -- make the language server recognize "vim" global
+
               workspace = {
                 library = {
-                    -- Tell the LSP where the Awesome libraries are
-                    [vim.fn.expand("/usr/share/awesome/lib")] = true,
-                    [vim.fn.expand("/usr/share/lua/5.1")] = true,
-                }
+
+                  -- '~/.luarocks/share/lua/5.3',
+                  -- '/usr/share/lua/5.3',
+                  -- ["/usr/share/awesome/lib"] = true,
+                  -- [vim.fn.expand('~/.config/awesome')] = true,
+                  ["/home/frerebo/installations/awesome-code-doc"] = true
+
+                },
+              },
+              diagnostics = {
+                globals = { "vim", "awesome", "client", "screen", "root", "mouse" },
               },
               completion = {
                 callSnippet = "Replace",
