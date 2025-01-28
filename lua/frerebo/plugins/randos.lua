@@ -61,7 +61,7 @@ local colortheme = { {
   priority = 1000,
   config = function()
     require('onedark').setup {
-      style = 'warmer',
+      style = 'warm',
       toggle_style_key = '<leader>ts'
     }
     vim.cmd.colorscheme 'onedark'
