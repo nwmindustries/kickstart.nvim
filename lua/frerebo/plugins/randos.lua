@@ -39,58 +39,6 @@ local highlight_current = {
   "rktjmp/highlight-current-n.nvim"
 }
 
-local sonokai = {
-  'sainnhe/sonokai',
-  cond = false,
-
-  lazy = false,
-  priority = 1000,
-  config = function()
-    -- Optionally configure and load the colorscheme
-    -- directly inside the plugin declaration.
-    -- vim.g.sonokai_enable_italic = true
-    vim.cmd.colorscheme('sonokai')
-  end
-}
-
-
-
-local colortheme = { {
-  'navarasu/onedark.nvim',
-  cond = true,
-  priority = 1000,
-  config = function()
-    require('onedark').setup {
-      style = 'warm',
-      toggle_style_key = '<leader>ts'
-    }
-    vim.cmd.colorscheme 'onedark'
-    -- require('onedark').load()
-  end,
-  -- opts = {
-  --   style = 'warmer',
-  --   toggle_style_key = '<leader>ts'
-  -- },
-}
-
-}
-
-
-local colorcollection = {
-  {
-    'rafi/awesome-vim-colorschemes',
-    lazy = false,    -- load this plugin immediately
-    priority = 1000, -- high priority to ensure it loads early
-  },
-  {
-    'flazz/vim-colorschemes',
-    lazy = false,    -- load this plugin immediately
-    priority = 1000, -- high priority to ensure it loads early
-  },
-}
-
-
-
 local startify_dash = {
   'mhinz/vim-startify',
   init = function()
@@ -122,12 +70,9 @@ return {
   folding,
   startify_dash,
 
-  colortheme,
   highlight_current,
   kmonad,
   neogit,
   bar_bar,
   rainbows,
-  colorcollection,
-  sonokai,
 }

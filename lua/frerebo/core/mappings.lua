@@ -8,6 +8,9 @@ local km = vim.keymap
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+
+
 km.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 km.set({ 'n', 'v' }, 'q', '<Nop>', { silent = true })
 km.set('n', ';', ':')
@@ -47,8 +50,8 @@ km.set('n', 'to', '<cmd>tabedit % | tabprevious<cr>', {
 })
 
 -- Scrolling and window resizing
-km.set({ 'n', 'v' }, '<M-k>', '5<C-Y>', { silent = true, desc = "scroll up" }) -- scroll up
-km.set({ 'n', 'v' }, '<M-j>', '5<C-E>', { silent = true, desc = "scroll down" }) -- scroll up
+km.set({ 'n', 'v' }, '<M-k>', '5<C-Y>', {noremap = true, silent = true, desc = "scroll up" }) -- scroll up
+km.set({ 'n', 'v' }, '<M-j>', '5<C-E>', {noremap = true, silent = true, desc = "scroll down" }) -- scroll up
 
 
 km.set('i', '<C-p>', '<C-r>+', { silent = true })
@@ -91,7 +94,7 @@ km.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S
 km.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 km.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 km.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-km.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch [B]uffers' })
+km.set('n', '<leader><leader>', require('telescope.builtin').buffers, { desc = '[S]earch [B]uffers', noremap = true, silent = true })
 -- HIGHLIGHT-CURRENT-N
 
 
@@ -133,7 +136,9 @@ vim.api.nvim_create_user_command('Format', function()
   vim.lsp.buf.format()
 end, {})
 
-
+-- Resize horizontal split
+vim.keymap.set('n', '<M-[>', ':resize +5<CR>', { noremap = true, silent = true })  -- Alt + [ to increase
+vim.keymap.set('n', '<M-]>', ':resize -5<CR>', { noremap = true, silent = true })  -- Alt + ] to decrease
 
 
 
