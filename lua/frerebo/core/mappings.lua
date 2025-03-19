@@ -137,8 +137,12 @@ vim.api.nvim_create_user_command('Format', function()
 end, {})
 
 -- Resize horizontal split
-vim.keymap.set('n', '<M-[>', ':resize +5<CR>', { noremap = true, silent = true })  -- Alt + [ to increase
-vim.keymap.set('n', '<M-]>', ':resize -5<CR>', { noremap = true, silent = true })  -- Alt + ] to decrease
+-- vim.keymap.set('n', '<M-[>', ':resize +5<CR>', { noremap = true, silent = true })  -- Alt + [ to increase
+-- vim.keymap.set('n', '<M-]>', ':resize -5<CR>', { noremap = true, silent = true })  -- Alt + ] to decrease
+
+
+vim.keymap.set('n', '<M-]>', ':vertical resize +5<CR>', { noremap = true, silent = true })  -- Alt + [ to increase
+vim.keymap.set('n', '<M-[>', ':vertical resize -5<CR>', { noremap = true, silent = true })  -- Alt + ] to decrease
 
 
 
