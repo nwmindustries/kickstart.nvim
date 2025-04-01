@@ -21,6 +21,7 @@ local sonokai = {
 
 local onedark = { {
     'navarasu/onedark.nvim',
+    lazy = false,
     cond = true,
     priority = 1000,
     config = function()
