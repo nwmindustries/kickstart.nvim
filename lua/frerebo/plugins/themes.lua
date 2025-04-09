@@ -26,11 +26,11 @@ local onedark = { {
     priority = 1000,
     config = function()
         require('onedark').setup {
-            style = 'warm',
+            style = 'dark',
             toggle_style_key = '<leader>ts'
         }
         vim.cmd.colorscheme 'onedark'
-        -- require('onedark').load()
+        require('onedark').load()
     end,
 }
 
@@ -114,7 +114,7 @@ local gato = {
 vim.opt.termguicolors = true  -- Enable true colors (required for #000000)
 vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })  -- Set pitch black background
 return {
-    colorcollection,
+    -- colorcollection,
     sonokai,
     onedark,
     gato,
