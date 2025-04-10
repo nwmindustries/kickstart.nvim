@@ -5,6 +5,8 @@ return {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path",   -- source for file system paths
     "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp",
+
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
@@ -25,12 +27,26 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
+    -- Set up LSP capabilities for completion
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
+        autocomplete = {
+          cmp.TriggerEvent.TextChanged,
+          cmp.TriggerEvent.InsertEnter
+
+        }
       },
-      snippet = { -- configure how nvim-cmp interacts with snippet engine
+
+      performance = {
+        throttle = 50,      -- Time in ms to throttle requests (default is 80)
+        debounce = 10,      -- Time in ms to debounce requests (default is 60)
+        fetching_timeout = 200, -- Timeout for fetching completions (default is 200)
+      },
+      snippet = {           -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
@@ -54,6 +70,7 @@ return {
         { name = "buffer" },  -- text within current buffer
         { name = "path" },    -- file system paths
         { name = "cmdline" },
+        { name = "nvim_lsp" },
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu
@@ -64,5 +81,7 @@ return {
         }),
       },
     })
+    -- Make capabilities available to LSP configs
+    vim.g.cmp_capabilities = capabilities -- Store globally if needed
   end,
 }
