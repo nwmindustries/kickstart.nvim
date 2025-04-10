@@ -118,10 +118,17 @@ return {
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
+          root_dir = require('lspconfig.util').root_pattern(
+            '.luarc.json', -- Look for .luarc.json
+            '.git',  -- Or a .git directory
+            'wezterm.lua', -- Or the WezTerm config file
+            'rc.lua' -- Or the AwesomeWM config file
+          ) or vim.fn.getcwd(),
           settings = {
             Lua = {
               runtime = {
-                version = 'Lua 5.3',
+                -- version = 'Lua 5.3',
+                version = 'LuaJIT',
                 path = {
                   '?.lua',
                   '?/init.lua',
@@ -140,12 +147,14 @@ return {
                   -- '/usr/share/lua/5.3',
                   -- ["/usr/share/awesome/lib"] = true,
                   -- [vim.fn.expand('~/.config/awesome')] = true,
-                  ["/home/frerebo/installations/awesome-code-doc"] = true
-
+                  ["/home/frerebo/installations/awesome-code-doc"] = true,
+                  [vim.fn.expand("~/.local/share/wezterm-types")] = true,
+                  ["/usr/share/nvim/runtime/lua/vim"] = true,
                 },
+                checkThirdParty = false,
               },
               diagnostics = {
-                globals = { "vim", "awesome", "client", "screen", "root", "mouse" },
+                globals = { "wezterm", "vim", "awesome", "client", "screen", "root", "mouse" },
               },
               completion = {
                 callSnippet = "Replace",
