@@ -35,6 +35,10 @@ local kmonad = {
   'kmonad/kmonad-vim'
 }
 
+local nvim_gui = {
+ "equalsraf/neovim-gui-shim" 
+}
+
 local highlight_current = {
   "rktjmp/highlight-current-n.nvim"
 }
@@ -67,6 +71,7 @@ local wezterm_mux_navigator = {
 
 
 return {
+  nvim_gui,
   folding,
   startify_dash,
 

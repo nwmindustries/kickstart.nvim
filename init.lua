@@ -19,6 +19,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
+-- fvim configs?? --
+
+
+-- Enable anti-aliasing
+vim.g.fvim_font_antialias = true
+
+-- Set the font
+vim.g.fvim_font = "JetBrainsMono Nerd Font:h14"
+
+-- Enable ligatures
+vim.g.fvim_font_ligature = true
+
+-- Optional: Disable transparency
+vim.g.fvim_transparent = false
 
 
 
