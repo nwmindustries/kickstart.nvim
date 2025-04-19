@@ -147,7 +147,6 @@ return {
                   -- '/usr/share/lua/5.3',
                   -- ["/usr/share/awesome/lib"] = true,
                   -- [vim.fn.expand('~/.config/awesome')] = true,
-                  ["/home/frerebo/installations/awesome-code-doc"] = true,
                   -- [vim.fn.expand("~/.local/share/wezterm-types")] = true,
                   ["/usr/share/nvim/runtime/lua/vim"] = true,
                 },
