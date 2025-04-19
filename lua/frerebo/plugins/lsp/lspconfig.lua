@@ -161,7 +161,11 @@ return {
               },
             },
           },
+
+          cmd = {
+          "lua-language-server", "--log-level=trace" },
         })
+        
       end,
     })
   end,
