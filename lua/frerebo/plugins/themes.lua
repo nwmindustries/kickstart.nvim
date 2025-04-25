@@ -19,7 +19,7 @@ local nvim_tree_groups = {
 local cyberdream =  {
     "scottmckendry/cyberdream.nvim",
     lazy = false,
-    cond = true,
+    cond = false,
     priority = 1000,
     config = function()
       require("cyberdream").setup({
@@ -60,22 +60,23 @@ local sonokai = {
 local onedark = { 
     'navarasu/onedark.nvim',
     lazy = false,
-    cond = false,
+    cond = true,
     priority = 1000,
     config = function()
         require('onedark').setup {
-            style = 'darker',
+            -- style = 'darker',
             toggle_style_key = '<leader>ts',
-            -- transparent = true,
+            transparent = true,
 
         }
-        vim.cmd.colorscheme 'onedark'
         -- require('onedark').load()
-        --
-        -- set_transparent_background(vanilla_groups)
-        -- set_transparent_background(nvim_tree_groups)
-        -- vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {fg = "#98c379"} )
-        -- vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#000000", bg = "#000000" })
+
+        set_transparent_background(vanilla_groups)
+        set_transparent_background(nvim_tree_groups)
+        vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {fg = "#98c379"} )
+        vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#000000", bg = "#000000" })
+
+        vim.cmd.colorscheme 'onedark'
     end,
 
 
