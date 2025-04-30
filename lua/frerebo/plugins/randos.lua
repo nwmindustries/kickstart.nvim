@@ -36,7 +36,7 @@ local kmonad = {
 }
 
 local nvim_gui = {
- "equalsraf/neovim-gui-shim" 
+  "equalsraf/neovim-gui-shim"
 }
 
 local highlight_current = {
