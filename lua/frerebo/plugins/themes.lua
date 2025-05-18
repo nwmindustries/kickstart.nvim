@@ -66,7 +66,8 @@ local onedark = {
         require('onedark').setup {
             -- style = 'darker',
             toggle_style_key = '<leader>ts',
-            transparent = true,
+            -- transparent = true,
+
 
         }
         -- require('onedark').load()
