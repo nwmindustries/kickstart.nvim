@@ -4,6 +4,8 @@ vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 vim.cmd('autocmd FileType html setlocal shiftwidth=4 tabstop=4')
 
+vim.cmd('au BufNewFile,BufRead /*.rasi setf css')
+
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
     pattern = "*",
     command = "set foldexpr=nvim_treesitter#foldexpr()"
