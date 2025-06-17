@@ -76,3 +76,19 @@ let g:startify_session_savevars = [
            \ 'g:startify_session_savecmds',
            \ ]
 ]])
+
+
+
+-- Smart font size increment/decrement for nvim-qt in Lua
+vim.g.guifont_base = "JetBrainsMono Nerd Font"
+vim.g.guifont_size = 14
+
+local function adjust_font_size(delta)
+  vim.g.guifont_size = vim.g.guifont_size + delta
+  local cmd = string.format("GuiFont! %s:h%d", vim.g.guifont_base, vim.g.guifont_size)
+  vim.cmd(cmd)
+end
+
+vim.keymap.set("n", "<C-=>", function() adjust_font_size(1) end)
+vim.keymap.set("n", "<C-->", function() adjust_font_size(-1) end)
+vim.keymap.set("n", "<C-0>", function() adjust_font_size(0) end)
