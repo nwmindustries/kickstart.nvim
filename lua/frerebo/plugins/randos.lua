@@ -69,8 +69,12 @@ local wezterm_mux_navigator = {
   "jonboh/wezterm-mux.nvim"
 }
 
+local sxhkd = {
+  "kovetskiysxhkd-vim"
+}
 
 return {
+  sxhkd,
   nvim_gui,
   folding,
   startify_dash,
