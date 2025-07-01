@@ -70,7 +70,7 @@ local wezterm_mux_navigator = {
 }
 
 local sxhkd = {
-  "kovetskiysxhkd-vim"
+  "kovetskiy/sxhkd-vim"
 }
 
 return {
