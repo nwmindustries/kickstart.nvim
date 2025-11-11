@@ -69,6 +69,10 @@ local wezterm_mux_navigator = {
   "jonboh/wezterm-mux.nvim"
 }
 
+local sxhkd = {
+  "kovetskiy/sxhkd-vim"
+}
+
 
 return {
   nvim_gui,
@@ -80,4 +84,5 @@ return {
   neogit,
   bar_bar,
   rainbows,
+  sxhkd
 }
