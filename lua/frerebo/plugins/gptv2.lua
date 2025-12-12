@@ -5,5 +5,6 @@ return {
     "nvim-telescope/telescope.nvim"
   },
   event = 'VimEnter',
+  lazy = false,
 }
 
