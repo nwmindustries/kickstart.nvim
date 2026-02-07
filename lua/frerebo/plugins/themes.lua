@@ -74,8 +74,25 @@ local onedark = {
 
         set_transparent_background(vanilla_groups)
         set_transparent_background(nvim_tree_groups)
+
+        -- Improve readability with better highlight customizations
         vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {fg = "#98c379"} )
-        vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#000000", bg = "#000000" })
+        vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "#3a3a3a" })  -- Subtle gray instead of invisible black
+
+        -- Enhanced syntax highlighting for better readability
+        vim.api.nvim_set_hl(0, "Comment", { fg = "#5c6370", italic = true })  -- Softer comment color
+        vim.api.nvim_set_hl(0, "String", { fg = "#98c379" })  -- Brighter green for strings
+        vim.api.nvim_set_hl(0, "Function", { fg = "#61afef", bold = true })  -- Brighter blue for functions
+
+        -- UI improvements
+        vim.api.nvim_set_hl(0, "CursorLine", { bg = "#2c323c" })  -- Subtle cursor line highlight
+        vim.api.nvim_set_hl(0, "Visual", { bg = "#3e4451" })  -- Better visual selection
+        vim.api.nvim_set_hl(0, "Search", { fg = "#282c34", bg = "#61afef" })  -- Better search highlight
+        vim.api.nvim_set_hl(0, "IncSearch", { fg = "#282c34", bg = "#e5c07b" })  -- Better incremental search
+
+        -- Line number improvements
+        vim.api.nvim_set_hl(0, "LineNr", { fg = "#5c6370" })  -- Softer line numbers
+        vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#abb2bf", bold = true })  -- Highlight current line number
 
         vim.cmd.colorscheme 'onedark'
     end,

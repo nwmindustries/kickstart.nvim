@@ -64,6 +64,12 @@ return {
 
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+        opts.desc = "Show LSP info"
+        keymap.set("n", "<leader>li", ":LspInfo<CR>", opts) -- show LSP info
+
+        opts.desc = "Format code"
+        keymap.set({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, opts) -- format code
       end,
     })
 
@@ -83,6 +89,36 @@ return {
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
+        })
+      end,
+      ["ts_ls"] = function()
+        -- configure typescript server
+        lspconfig["ts_ls"].setup({
+          capabilities = capabilities,
+          settings = {
+            typescript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+          },
         })
       end,
       ["svelte"] = function()
@@ -142,13 +178,13 @@ return {
 
               workspace = {
                 library = {
-
-                  -- '~/.luarocks/share/lua/5.3',
-                  -- '/usr/share/lua/5.3',
-                  -- ["/usr/share/awesome/lib"] = true,
-                  -- [vim.fn.expand('~/.config/awesome')] = true,
-                  -- [vim.fn.expand("~/.local/share/wezterm-types")] = true,
+                  vim.fn.expand("~/.luarocks/share/lua/5.3"),
+                  "/usr/share/lua/5.3",
+                  ["/usr/share/awesome/lib"] = true,
+                  [vim.fn.expand("~/.config/awesome")] = true,
+                  [vim.fn.expand("~/.local/share/wezterm-types")] = true,
                   ["/usr/share/nvim/runtime/lua/vim"] = true,
+                  [vim.fn.stdpath("data") .. "/lazy"] = true, -- Lazy plugin directory
                 },
                 checkThirdParty = false,
               },
