@@ -7,6 +7,14 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp",
 
+    -- Additional completion sources
+    "hrsh7th/cmp-calc",       -- math calculations
+    "hrsh7th/cmp-emoji",      -- emoji completion
+    "hrsh7th/cmp-nvim-lua",   -- neovim lua API
+    "octaltree/cmp-look",     -- dictionary/English words
+    "f3fora/cmp-spell",       -- spell checking
+    "ray-x/cmp-treesitter",   -- treesitter symbols
+
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
@@ -71,6 +79,12 @@ return {
         { name = "path" },    -- file system paths
         { name = "cmdline" },
         { name = "nvim_lsp" },
+        { name = "nvim_lua" },     -- Neovim Lua API
+        { name = "calc" },         -- math calculations
+        { name = "emoji" },        -- emoji completion
+        { name = "spell" },        -- spell checking
+        { name = "look" },         -- dictionary words
+        { name = "treesitter" },   -- treesitter symbols
       }),
 
       -- configure lspkind for vs-code like pictograms in completion menu
