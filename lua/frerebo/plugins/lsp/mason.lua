@@ -24,19 +24,19 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "typescript-language-server", -- TypeScript/JavaScript LSP
-        "html-lsp",
-        "css-lsp",
-        "svelte-language-server",
-        "lua-language-server",
-        "graphql-language-service-cli",
-        "emmet-ls",
-        "prisma-language-server",
+        "ts_ls", -- TypeScript/JavaScript LSP
+        "html",
+        "cssls",
+        "svelte",
+        "lua_ls",
+        "graphql",
+        "emmet_ls",
+        "prismals",
         "pyright",
-        "json-lsp",         -- JSON LSP
-        "bash-language-server", -- Bash LSP
-        "dockerfile-language-server", -- Docker LSP
-        "yaml-language-server", -- YAML LSP
+        "jsonls",         -- JSON LSP
+        "bashls", -- Bash LSP
+        "dockerls", -- Docker LSP
+        "yamlls", -- YAML LSP
       },
     })
   end,
