@@ -7,13 +7,7 @@ return {
     { "folke/neodev.nvim",                   opts = {} },
   },
   config = function()
-    -- import lspconfig plugin
-    local lspconfig = require("lspconfig")
-
-    -- import mason_lspconfig plugin
-    local mason_lspconfig = require("mason-lspconfig")
-
-    -- import cmp-nvim-lsp plugin
+    -- import cmp-nvim-lsp plugin (nvim-lspconfig is loaded via its plugin spec and require("lspconfig.util"))
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local keymap = vim.keymap -- for conciseness
@@ -84,124 +78,107 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["ts_ls"] = function()
-        -- configure typescript server
-        lspconfig["ts_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
-            },
-            javascript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
-            },
+    -- Configure LSP servers using the new vim.lsp.config API (Neovim 0.11+ / mason-lspconfig v2+)
+    -- This replaces the deprecated mason_lspconfig.setup_handlers() / handlers table that was removed.
+    -- mason-lspconfig's automatic_enable (default: true) will now use these configs via vim.lsp.enable()
+    -- Common keymaps and capabilities are handled via LspAttach autocmd + cmp_nvim_lsp
+
+    vim.lsp.config.ts_ls = {
+      capabilities = capabilities,
+      settings = {
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
           },
-        })
-      end,
-      ["svelte"] = function()
-        -- configure svelte server
-        lspconfig["svelte"].setup({
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              pattern = { "*.js", "*.ts" },
-              callback = function(ctx)
-                -- Here use ctx.match instead of ctx.file
-                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-              end,
-            })
+        },
+        javascript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+      },
+    }
+
+    vim.lsp.config.svelte = {
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePost", {
+          pattern = { "*.js", "*.ts" },
+          callback = function(ctx)
+            -- Here use ctx.match instead of ctx.file (for svelte LSP TS integration)
+            client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
           end,
         })
       end,
-      ["graphql"] = function()
-        -- configure graphql language server
-        lspconfig["graphql"].setup({
-          capabilities = capabilities,
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-        })
-      end,
-      ["emmet_ls"] = function()
-        -- configure emmet language server
-        lspconfig["emmet_ls"].setup({
-          capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-        })
-      end,
-      ["lua_ls"] = function()
-        -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          root_dir = require('lspconfig.util').root_pattern(
-            '.luarc.json', -- Look for .luarc.json
-            '.git',  -- Or a .git directory
-            'wezterm.lua', -- Or the WezTerm config file
-            'rc.lua' -- Or the AwesomeWM config file
-          ) or vim.fn.getcwd(),
-          settings = {
-            Lua = {
-              runtime = {
-                -- version = 'Lua 5.3',
-                version = 'LuaJIT',
-                path = {
-                  '?.lua',
-                  '?/init.lua',
-                  vim.fn.expand '~/.luarocks/share/lua/5.3/?.lua',
-                  vim.fn.expand '~/.luarocks/share/lua/5.3/?/init.lua',
-                  '/usr/share/5.3/?.lua',
-                  '/usr/share/lua/5.3/?/init.lua'
-                }
-              },
-              -- make the language server recognize "vim" global
+    }
 
-              workspace = {
-                library = {
-                  vim.fn.expand("~/.luarocks/share/lua/5.3"),
-                  "/usr/share/lua/5.3",
-                  ["/usr/share/awesome/lib"] = true,
-                  [vim.fn.expand("~/.config/awesome")] = true,
-                  [vim.fn.expand("~/.local/share/wezterm-types")] = true,
-                  ["/usr/share/nvim/runtime/lua/vim"] = true,
-                  [vim.fn.stdpath("data") .. "/lazy"] = true, -- Lazy plugin directory
-                },
-                checkThirdParty = false,
-              },
-              diagnostics = {
-                globals = { "wezterm", "vim", "awesome", "client", "screen", "root", "mouse" },
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
+    vim.lsp.config.graphql = {
+      capabilities = capabilities,
+      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+    }
+
+    vim.lsp.config.emmet_ls = {
+      capabilities = capabilities,
+      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+    }
+
+    vim.lsp.config.lua_ls = {
+      capabilities = capabilities,
+      root_dir = require("lspconfig.util").root_pattern(
+        ".luarc.json", -- Look for .luarc.json
+        ".git", -- Or a .git directory
+        "wezterm.lua", -- Or the WezTerm config file
+        "rc.lua" -- Or the AwesomeWM config file
+      ) or vim.fn.getcwd(),
+      settings = {
+        Lua = {
+          runtime = {
+            version = "LuaJIT",
+            path = {
+              "?.lua",
+              "?/init.lua",
+              vim.fn.expand("~/.luarocks/share/lua/5.3/?.lua"),
+              vim.fn.expand("~/.luarocks/share/lua/5.3/?/init.lua"),
+              "/usr/share/5.3/?.lua",
+              "/usr/share/lua/5.3/?/init.lua",
             },
           },
+          workspace = {
+            library = {
+              vim.fn.expand("~/.luarocks/share/lua/5.3"),
+              "/usr/share/lua/5.3",
+              ["/usr/share/awesome/lib"] = true,
+              [vim.fn.expand("~/.config/awesome")] = true,
+              [vim.fn.expand("~/.local/share/wezterm-types")] = true,
+              ["/usr/share/nvim/runtime/lua/vim"] = true,
+              [vim.fn.stdpath("data") .. "/lazy"] = true, -- Lazy plugin directory
+            },
+            checkThirdParty = false,
+          },
+          diagnostics = {
+            globals = { "wezterm", "vim", "awesome", "client", "screen", "root", "mouse" },
+          },
+          completion = {
+            callSnippet = "Replace",
+          },
+        },
+      },
+      cmd = { "lua-language-server", "--log-level=trace" },
+    }
 
-          cmd = {
-          "lua-language-server", "--log-level=trace" },
-        })
-        
-      end,
-    })
+    -- Other servers (html, cssls, pyright, jsonls, bashls, etc.) will use their default configs from nvim-lspconfig
+    -- via mason-lspconfig's automatic_enable feature.
   end,
 }
