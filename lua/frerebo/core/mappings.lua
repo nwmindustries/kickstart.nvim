@@ -143,12 +143,3 @@ end, {})
 
 vim.keymap.set('n', '<M-]>', ':vertical resize +5<CR>', { noremap = true, silent = true })  -- Alt + [ to increase
 vim.keymap.set('n', '<M-[>', ':vertical resize -5<CR>', { noremap = true, silent = true })  -- Alt + ] to decrease
-
-
-
--- Both visual and normal mode for each, so you can open with a visual selection or without.
-vim.api.nvim_set_keymap('v', '<leader>gc', ':GPTModelsCode<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gc', ':GPTModelsCode<CR>', { noremap = true })
-
-vim.api.nvim_set_keymap('v', '<leader>gp', ':GPTModelsChat<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gp', ':GPTModelsChat<CR>', { noremap = true })
