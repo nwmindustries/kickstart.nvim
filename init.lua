@@ -3,6 +3,25 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.env.XAI_API_KEY = vim.env.XAI_API_KEY or os.getenv("XAI_API_KEY")
+if not vim.env.XAI_API_KEY then
+  vim.notify("XAI_API_KEY not set! Set it in your shell or here.", vim.log.levels.WARN)
+end
+
+-- Override grok-beta deprecation in codecompanion xai adapter (runtime evidence from avante.lua logs + successful H6 logs + init.lua execution)
+pcall(function()
+  local ok, adapters = pcall(require, "codecompanion.adapters")
+  if ok then
+    adapters.extend("xai", {
+      schema = {
+        model = {
+          default = "grok-3",
+          choices = { "grok-3", "grok-3-fast", "grok-code-fast-1" },
+        },
+      },
+    })
+  end
+end)
 
 --@TODO HOLYSHITIMPORTANT TEMPORARIL REVERSING THE ORDER OF REQUIRING CORE AND LAYZ (in josean, he loads core, then lazy)
 require("frerebo.lazy")

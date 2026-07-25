@@ -1,4 +1,4 @@
-return {
+return  {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
@@ -100,3 +100,5 @@ return {
     vim.g.cmp_capabilities = capabilities -- Store globally if needed
   end,
 }
+
+
